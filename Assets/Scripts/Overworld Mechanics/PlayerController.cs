@@ -9,9 +9,11 @@ public class PlayerController : MonoBehaviour
     public Tilemap groundTilemap;
     public Tilemap seaTilemap;
     public Tilemap mountainTilemap;
-    public bool canWalkOnGround;
-    public bool canWalkOnSea;
-    public bool canWalkOnMountain;
+    public Tilemap shipExitTilemap;
+
+    public bool canWalkOnGround = true;
+    public bool canWalkOnSea = false;
+    public bool canWalkOnMountain = false;
 
     public float playerSpeed = 5f;
     public GameObject vehicle;
@@ -38,7 +40,6 @@ public class PlayerController : MonoBehaviour
 
         if (isMoving)
         {
-            Debug.Log("Moving Towards");
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, playerSpeed * Time.fixedDeltaTime);
             if (transform.position == targetPosition)
             {
@@ -54,6 +55,7 @@ public class PlayerController : MonoBehaviour
         Vector3 cellCenterPosition = groundTilemap.GetCellCenterWorld(cellPosition);
         transform.position = cellCenterPosition;
     }
+
     private void AttemptToMove(float horizontalInput, float verticalInput)
     {
         if (horizontalInput != 0f || verticalInput != 0f)
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
             // New tile I am moving to
             Vector3 newPosition = transform.position + new Vector3(inputDirection.x, inputDirection.y, 0f);
 
-            if (IsTileWalkable(newPosition))
+            if (CheckNextTileProperties(newPosition))
             {
                 if (vehicle != null && newPosition == vehicle.transform.position)
                 {
@@ -92,12 +94,13 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
-    private bool IsTileWalkable(Vector3 position)
+    private bool CheckNextTileProperties(Vector3 position)
     {
         // find all the tiles on that space in the world
         TileBase groundTile = groundTilemap.GetTile(groundTilemap.WorldToCell(position));
         TileBase seaTile = seaTilemap.GetTile(seaTilemap.WorldToCell(position));
         TileBase mountainTile = mountainTilemap.GetTile(mountainTilemap.WorldToCell(position));
+        TileBase vehicleExitTile = shipExitTilemap.GetTile(shipExitTilemap.WorldToCell(position)); // assuming you have a vehicle exit tilemap
 
         // check if tile is walkable based on boolean variables
         bool canWalkOnCurrentTile = false;
@@ -127,6 +130,11 @@ public class PlayerController : MonoBehaviour
                 canWalkOnCurrentTile = true;
             }
             else canWalkOnCurrentTile = false;
+        }
+
+        if (vehicleExitTile != null && vehicle != null)
+        {
+            StartCoroutine(ExitVehicleCoroutine());
         }
 
         // check if vehicle is present at the position
@@ -164,7 +172,20 @@ public class PlayerController : MonoBehaviour
     }
     private IEnumerator ExitVehicleCoroutine()
     {
-        Debug.Log("Get out of the vehicle");
-        yield return null;
+        canWalkOnGround = true;
+        canWalkOnSea = false;
+        canWalkOnMountain = false;
+
+        while (transform.position != vehicle.transform.position)
+        {
+            targetPosition = vehicle.transform.position;
+            isMoving = true;
+            yield return new WaitForFixedUpdate();
+        }
+
+        isMoving = false;
+        vehicle.transform.SetParent(null);
+        vehicle.GetComponent<BoxCollider2D>().enabled = true;
+        vehicle = null;
     }
 }
