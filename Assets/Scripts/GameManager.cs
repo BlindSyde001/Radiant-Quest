@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -34,8 +35,12 @@ public class GameManager : MonoBehaviour
     // Setter for the day variable
     public void ChangeDay()
     {
-        if(TodayChores() > 0) return;
+        if(TodayChores() > 0)
+        {
+            throw new InvalidActionException("Cannot change day while there are pending chores!");
+        }
         day += 1;
+        UIController.Instance.StartDialogue("", $"Day {day} started!");
     }
 
     // Decreases the chore number for the current day
@@ -48,6 +53,7 @@ public class GameManager : MonoBehaviour
 
     // Get the number of chores for today
     public int TodayChores() {
+        if(day > numChores.Count - 1) return 0;
         return numChores[day];
     }
 }

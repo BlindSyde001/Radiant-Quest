@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector3 targetPosition;
 
-    private List<NPCController> nearNpc = new List<NPCController>{};
+    private List<InteractableController> nearInteractable = new List<InteractableController>{};
 
     // UPDATES
     private void Start()
@@ -50,10 +50,7 @@ public class PlayerController : MonoBehaviour
     // METHODS
     private void PlayerInputs() {
         if (Input.GetKeyDown(KeyCode.E)) {
-            if(nearNpc.Count > 0) {
-                NPCController npc = nearNpc[nearNpc.Count - 1];
-                npc.PlayerAction();
-            }
+            PlayerInteracts();
         }
 
         if(UIController.Instance.isDialogueActive()) return;
@@ -66,6 +63,16 @@ public class PlayerController : MonoBehaviour
             float verticalInput = Input.GetAxisRaw("Vertical");
 
             AttemptToMove(horizontalInput, verticalInput);
+        }
+    }
+
+    private void PlayerInteracts() {
+        if(UIController.Instance.isDialogueActive())
+        {
+            UIController.Instance.NextLine();
+        } else if (nearInteractable.Count > 0) {
+            InteractableController interactable = nearInteractable[nearInteractable.Count - 1];
+            interactable.PlayerInteract();
         }
     }
 
@@ -211,17 +218,17 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("NPC"))
+        if (collider.gameObject.CompareTag("Interactable"))
         {
-            nearNpc.Add(collider.GetComponent<NPCController>());
+            nearInteractable.Add(collider.GetComponent<InteractableController>());
         }
     }
 
     private void OnTriggerExit2D(Collider2D collider)
     {
-        if (collider.gameObject.CompareTag("NPC"))
+        if (collider.gameObject.CompareTag("Interactable"))
         {
-            nearNpc.Remove(collider.GetComponent<NPCController>());
+            nearInteractable.Remove(collider.GetComponent<InteractableController>());
         }
     }
 }

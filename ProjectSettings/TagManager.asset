@@ -7,7 +7,7 @@ TagManager:
   - Ground
   - Sea
   - Unpassable
-  - NPC
+  - Interactable
   layers:
   - Default
   - TransparentFX
