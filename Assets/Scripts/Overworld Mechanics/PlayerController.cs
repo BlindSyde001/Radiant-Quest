@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     public bool canWalkOnMountain = false;
 
     public float playerSpeed = 5f;
-    public GameObject vehicle;
+    public GameObject currentVehicleInUse;
 
     [SerializeField]
     private bool isMoving = false;
@@ -80,10 +80,10 @@ public class PlayerController : MonoBehaviour
 
             if (CheckNextTileProperties(newPosition))
             {
-                if (vehicle != null && newPosition == vehicle.transform.position)
+                if (currentVehicleInUse != null && newPosition == currentVehicleInUse.transform.position)
                 {
                     // Player is trying to enter a vehicle
-                    StartCoroutine(EnterVehicleCoroutine(vehicle.GetComponent<Vehicle>()));
+                    StartCoroutine(EnterVehicleCoroutine(currentVehicleInUse.GetComponent<Vehicle>()));
                 }
                 else
                 {
@@ -132,13 +132,13 @@ public class PlayerController : MonoBehaviour
             else canWalkOnCurrentTile = false;
         }
 
-        if (vehicleExitTile != null && vehicle != null)
+        if (vehicleExitTile != null && currentVehicleInUse != null)
         {
             StartCoroutine(ExitVehicleCoroutine());
         }
 
         // check if vehicle is present at the position
-        if (vehicle == null)
+        if (currentVehicleInUse == null)
         {
             Collider2D[] colliders = Physics2D.OverlapBoxAll(position, new Vector2(0.5f, 0.5f), 0);
             foreach (Collider2D collider in colliders)
@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
                 if (collider.gameObject.GetComponent<Vehicle>() != null)
                 {
                     canWalkOnCurrentTile = true;
-                    vehicle = collider.gameObject;
+                    currentVehicleInUse = collider.gameObject;
                     break;
                 }
             }
@@ -176,16 +176,16 @@ public class PlayerController : MonoBehaviour
         canWalkOnSea = false;
         canWalkOnMountain = false;
 
-        while (transform.position != vehicle.transform.position)
+        while (transform.position != currentVehicleInUse.transform.position)
         {
-            targetPosition = vehicle.transform.position;
+            targetPosition = currentVehicleInUse.transform.position;
             isMoving = true;
             yield return new WaitForFixedUpdate();
         }
 
         isMoving = false;
-        vehicle.transform.SetParent(null);
-        vehicle.GetComponent<BoxCollider2D>().enabled = true;
-        vehicle = null;
+        currentVehicleInUse.transform.SetParent(null);
+        currentVehicleInUse.GetComponent<BoxCollider2D>().enabled = true;
+        currentVehicleInUse = null;
     }
 }
