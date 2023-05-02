@@ -24,7 +24,6 @@ public class PlayerController : MonoBehaviour
     private Vector3 targetPosition;
 
     private List<NPCController> nearNpc = new List<NPCController>{};
-    private bool isInteracting = false;
 
     // UPDATES
     private void Start()
@@ -54,11 +53,10 @@ public class PlayerController : MonoBehaviour
             if(nearNpc.Count > 0) {
                 NPCController npc = nearNpc[nearNpc.Count - 1];
                 npc.PlayerAction();
-                isInteracting = npc.isTalking;
             }
         }
 
-        if(isInteracting) return;
+        if(UIController.Instance.isDialogueActive()) return;
         // Bellow here won't execute if player is interacting with anything
 
         // Movement inputs

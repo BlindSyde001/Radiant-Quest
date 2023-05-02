@@ -1,58 +1,41 @@
 using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class NPCController : MonoBehaviour
 {
-    public GameObject dialoguePanel;
-    public TextMeshProUGUI dialogueText;
+    public string npcName;
     public string[] dialogue;
-    public float charPerSecond;
-    public bool isTalking = false;
 
     private int index;
 
     void Start() {
-        dialogueText.text = "";
+        
     }
 
     public void PlayerAction() {
-        if(dialoguePanel == null) return;
-
-        if(!dialoguePanel.activeInHierarchy) {
-            isTalking = true;
+        if(!UIController.Instance.isDialogueActive()) {
             StartDialogue();
-        } else if(dialogueText.text == dialogue[index]) {
+        } else if(UIController.Instance.GetDialogueText() == dialogue[index]) {
             NextLine();
         }
     }
 
     public void StopDialogue() {
         ZeroText();
-        dialoguePanel.SetActive(false);
-        isTalking = false;
+        UIController.Instance.DialogueSetActive(false);
     }
 
     public void StartDialogue() {
         ZeroText();
-        dialoguePanel.SetActive(true);
-        StartCoroutine(Typing());
+        UIController.Instance.SetDialogueName(npcName);
+        UIController.Instance.WriteDialogueText(dialogue[index]);
     }
 
     // Resets the dialogues and texts
     public void ZeroText() {
-        dialogueText.text = "";
+        UIController.Instance.WriteDialogueText("");
         index = 0;
-    }
-
-    // Types a char from the dialog text a "charPerSecond"
-    IEnumerator Typing() {
-        foreach(char letter in dialogue[index].ToCharArray())
-        {
-            dialogueText.text += letter;
-            yield return new WaitForSeconds(charPerSecond);
-        }
     }
 
     // Goes to the next line for the NPC or stops if reached the end of the dialogue
@@ -60,8 +43,7 @@ public class NPCController : MonoBehaviour
         if(index < dialogue.Length - 1)
         {
             index++;
-            dialogueText.text = "";
-            StartCoroutine(Typing());
+            UIController.Instance.WriteDialogueText(dialogue[index]);
         } else {
             StopDialogue();
         }
