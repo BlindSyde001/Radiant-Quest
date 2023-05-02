@@ -9,7 +9,7 @@ public class NPCController : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public string[] dialogue;
     public float charPerSecond;
-    public bool playerIsClose;
+    public bool isTalking = false;
 
     private int index;
 
@@ -17,26 +17,21 @@ public class NPCController : MonoBehaviour
         dialogueText.text = "";
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.E) && playerIsClose) {
-            if(!dialoguePanel.activeInHierarchy) {
-                StartDialogue();
-            } else if(dialogueText.text == dialogue[index]) {
-                NextLine();
-            }
-        }
+    public void PlayerAction() {
+        if(dialoguePanel == null) return;
 
-        if (Input.GetKeyDown(KeyCode.Q) && dialoguePanel.activeInHierarchy)
-        {
-            StopDialogue();
+        if(!dialoguePanel.activeInHierarchy) {
+            isTalking = true;
+            StartDialogue();
+        } else if(dialogueText.text == dialogue[index]) {
+            NextLine();
         }
     }
 
     public void StopDialogue() {
         ZeroText();
         dialoguePanel.SetActive(false);
+        isTalking = false;
     }
 
     public void StartDialogue() {
@@ -68,22 +63,6 @@ public class NPCController : MonoBehaviour
             dialogueText.text = "";
             StartCoroutine(Typing());
         } else {
-            StopDialogue();
-        }
-    }
-
-    private void OnTriggerEnter2D(Collider2D other)
-    {
-        if(other.CompareTag("Player"))
-        {
-            playerIsClose = true;
-        }
-    }
-
-    void OnTriggerExit2D(Collider2D other) {
-        if(other.CompareTag("Player"))
-        {
-            playerIsClose = false;
             StopDialogue();
         }
     }

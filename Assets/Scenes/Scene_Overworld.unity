@@ -502,7 +502,7 @@ MonoBehaviour:
   canWalkOnSea: 0
   canWalkOnMountain: 0
   playerSpeed: 5
-  vehicle: {fileID: 0}
+  currentVehicleInUse: {fileID: 0}
   isMoving: 0
   targetPosition: {x: 0, y: 0, z: 0}
 --- !u!61 &630709539
@@ -880,7 +880,7 @@ GameObject:
   - component: {fileID: 765895936}
   m_Layer: 0
   m_Name: NPCTEST
-  m_TagString: Untagged
+  m_TagString: NPC
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

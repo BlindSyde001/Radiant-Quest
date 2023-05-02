@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector3 targetPosition;
 
+    private List<NPCController> nearNpc = new List<NPCController>{};
+    private bool isInteracting = false;
+
     // UPDATES
     private void Start()
     {
@@ -30,14 +33,6 @@ public class PlayerController : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        if (!isMoving)
-        {
-            float horizontalInput = Input.GetAxisRaw("Horizontal");
-            float verticalInput = Input.GetAxisRaw("Vertical");
-
-            AttemptToMove(horizontalInput, verticalInput);
-        }
-
         if (isMoving)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, playerSpeed * Time.fixedDeltaTime);
@@ -46,9 +41,36 @@ public class PlayerController : MonoBehaviour
                 isMoving = false;
             }
         }
+
+    }
+
+    private void Update() {
+        PlayerInputs();
     }
 
     // METHODS
+    private void PlayerInputs() {
+        if (Input.GetKeyDown(KeyCode.E)) {
+            if(nearNpc.Count > 0) {
+                NPCController npc = nearNpc[nearNpc.Count - 1];
+                npc.PlayerAction();
+                isInteracting = npc.isTalking;
+            }
+        }
+
+        if(isInteracting) return;
+        // Bellow here won't execute if player is interacting with anything
+
+        // Movement inputs
+        if (!isMoving)
+        {
+            float horizontalInput = Input.GetAxisRaw("Horizontal");
+            float verticalInput = Input.GetAxisRaw("Vertical");
+
+            AttemptToMove(horizontalInput, verticalInput);
+        }
+    }
+
     private void SnapPlayerToClosestGroundTile()
     {
         Vector3Int cellPosition = groundTilemap.WorldToCell(transform.position);
@@ -187,5 +209,21 @@ public class PlayerController : MonoBehaviour
         currentVehicleInUse.transform.SetParent(null);
         currentVehicleInUse.GetComponent<BoxCollider2D>().enabled = true;
         currentVehicleInUse = null;
+    }
+
+    private void OnTriggerEnter2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("NPC"))
+        {
+            nearNpc.Add(collider.GetComponent<NPCController>());
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collider)
+    {
+        if (collider.gameObject.CompareTag("NPC"))
+        {
+            nearNpc.Remove(collider.GetComponent<NPCController>());
+        }
     }
 }
