@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class UIController : MonoBehaviour
 {
-    public static UIController Instance { get; private set; } // Singleton instance
+    public static UIController Instance; // Singleton instance
     public float charPerSecond;
     
 
