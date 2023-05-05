@@ -15,6 +15,6 @@ public class NPCController : InteractableController
             throw new InvalidActionException(defaultErrorMessage, objName);
         }
 
-        UIController.Instance.StartDialogue(objName, dialogue);
+        UIDialogue.Instance.StartDialogue(objName, dialogue);
     }
 }

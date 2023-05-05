@@ -12,6 +12,6 @@ public class CollectibleItemController : InteractableController
             throw new InvalidActionException($"You can't pick {objName} yet!");
         }
 
-        UIController.Instance.StartDialogue("", $"You picked the {objName}!");
+        UIDialogue.Instance.StartDialogue("", $"You picked the {objName}!");
     }
 }

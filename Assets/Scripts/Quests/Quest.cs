@@ -5,20 +5,35 @@ using UnityEngine;
 
 public class Quest : MonoBehaviour
 {
-    public string questName;
+    public static Quest Instance; // Singleton instance
     public bool isCompleted;
 
     [System.Serializable]
     public class ChoreList
     {
+        public string questName;
         public List<Chore> chores;
+
+        public ChoreList()
+        {
+            chores = new List<Chore> { };
+        }
     }
     [SerializeField]
     public List<ChoreList> choresList = new List<ChoreList>();
 
-    void Awake()
+    private void Awake()
     {
-        DontDestroyOnLoad(gameObject); // Persist across scene loads
+        // Create or destroy duplicate instances
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject); // Persist across scene loads
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     void Start()
@@ -32,16 +47,16 @@ public class Quest : MonoBehaviour
     }
 
     // Get all the chores for today
-    public List<Chore> TodayQuest()
+    public ChoreList TodayQuest()
     {
         int today = GameManager.GetDay();
-        if (today > choresList.Count - 1) return new List<Chore> { };
-        return choresList[today].chores;
+        if (today > choresList.Count - 1) return new ChoreList();
+        return choresList[today];
     }
 
     public bool IsTodayQuestCompleted()
     {
-        List<Chore> todayQuests;
+        ChoreList todayQuests;
         try
         {
             todayQuests = TodayQuest();
@@ -50,7 +65,7 @@ public class Quest : MonoBehaviour
         {
             return true;
         }
-        foreach (Chore chore in todayQuests)
+        foreach (Chore chore in todayQuests.chores)
         {
             if (!chore.isCompleted()) return false;
         }
@@ -59,9 +74,9 @@ public class Quest : MonoBehaviour
 
     public Chore CurrentChore()
     {
-        List<Chore> todayQuests = TodayQuest();
+        ChoreList todayQuests = TodayQuest();
 
-        foreach (Chore chore in todayQuests)
+        foreach (Chore chore in todayQuests.chores)
         {
             if (chore.isCompleted()) continue;
             return chore;
@@ -73,5 +88,6 @@ public class Quest : MonoBehaviour
     {
         Chore current = CurrentChore();
         current.Evaluate(actionObject);
+        UIQuests.Instance.UpdateQuestList();
     }
 }

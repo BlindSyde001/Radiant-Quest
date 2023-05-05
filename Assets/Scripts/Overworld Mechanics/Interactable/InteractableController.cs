@@ -13,8 +13,8 @@ public abstract class InteractableController : MonoBehaviour
     public void PlayerInteract()
     {
         Interaction();
-        GameManager.Instance.quests.EvaluateAction(gameObject);
         interactAction?.Invoke();
+        Quest.Instance.EvaluateAction(gameObject);
     }
 
     public bool isInteractionActive()

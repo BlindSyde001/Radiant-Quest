@@ -33,4 +33,9 @@ public class Chore : MonoBehaviour
         _isCompleted = true;
         unlockAction.Invoke();
     }
+
+    public string GetChoreDescription()
+    {
+        return choreDescription;
+    }
 }

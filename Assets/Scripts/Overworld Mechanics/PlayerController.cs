@@ -71,9 +71,9 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerInteracts()
     {
-        if (UIController.Instance.isDialogueActive())
+        if (UIDialogue.Instance.isDialogueActive())
         {
-            UIController.Instance.NextLine();
+            UIDialogue.Instance.NextLine();
         }
         else if (nearInteractable.Count > 0)
         {

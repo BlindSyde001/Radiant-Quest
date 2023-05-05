@@ -4,9 +4,9 @@ using System;
 using TMPro;
 using UnityEngine;
 
-public class UIController : MonoBehaviour
+public class UIDialogue : MonoBehaviour
 {
-    public static UIController Instance; // Singleton instance
+    public static UIDialogue Instance; // Singleton instance
 
     private const float CHAR_PER_SECOND = 0.05f;
     [SerializeField] private GameObject dialoguePanel;
@@ -19,11 +19,11 @@ public class UIController : MonoBehaviour
 
     private void Awake()
     {
-        // Create or destroy duplicate instances of GameManager
+        // Create or destroy duplicate instances
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Persist the GameManager across scene loads
+            DontDestroyOnLoad(gameObject); // Persist across scene loads
         }
         else
         {

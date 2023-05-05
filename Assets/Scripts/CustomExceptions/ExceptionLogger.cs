@@ -39,7 +39,7 @@ public class ExceptionLogger : MonoBehaviour
                 string messageWithName = logString.Substring(logString.IndexOf(":") + 1).Trim();
                 string objName = messageWithName.Substring(0, messageWithName.IndexOf(":"));
                 string message = messageWithName.Substring(messageWithName.IndexOf(":") + 1).Trim();
-                UIController.Instance.StartDialogue(objName, message);
+                UIDialogue.Instance.StartDialogue(objName, message);
             }
         }
     }
