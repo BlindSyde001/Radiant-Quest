@@ -56,8 +56,8 @@ public class PlayerController : MonoBehaviour
             PlayerInteracts();
         }
 
-        if (UIController.Instance.isDialogueActive()) return;
-        // Bellow here won't execute if player is interacting with anything
+        if (GameManager.state != GameManager.GameStates.Playing) return;
+        // Bellow here won't execute if player is interacting with anything or the game is paused
 
         // Movement inputs
         if (!isMoving)

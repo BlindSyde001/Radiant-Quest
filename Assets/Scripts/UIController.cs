@@ -58,11 +58,13 @@ public class UIController : MonoBehaviour
     {
         ZeroText();
         Instance.DialogueSetActive(false);
+        GameManager.state = GameManager.GameStates.Playing;
     }
 
     // Starts a new dialogue on the scene and configures the name and list of lines for the dialogue
     public void StartDialogue(string dialogueName, object dialogue_)
     {
+        GameManager.state = GameManager.GameStates.Paused;
         ZeroText();
         Instance.SetDialogueName(dialogueName);
 

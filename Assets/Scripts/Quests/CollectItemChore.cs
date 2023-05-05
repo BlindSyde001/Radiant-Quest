@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class CollectItemChore : Chore
 {
-    public CollectibleItemController item;
-
-    public override void Evaluate(GameObject gameObject)
+    public override void Evaluate(GameObject actionObject)
     {
-        CollectibleItemController collectedItem = gameObject.GetComponent<CollectibleItemController>();
+        CollectibleItemController collectedItem = actionObject.GetComponent<CollectibleItemController>();
 
-        if (collectedItem == null || collectedItem != item) return;
+        if (collectedItem == null || collectedItem.name != goalObjName) return;
 
         CompleteChore();
     }

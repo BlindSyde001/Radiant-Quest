@@ -71,15 +71,7 @@ public class Quest : MonoBehaviour
 
     public void EvaluateAction(GameObject actionObject)
     {
-        Chore current;
-        try
-        {
-            current = CurrentChore();
-        }
-        catch (InvalidOperationException)
-        {
-            return;
-        }
+        Chore current = CurrentChore();
         current.Evaluate(actionObject);
     }
 }

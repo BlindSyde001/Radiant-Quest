@@ -4,13 +4,11 @@ using UnityEngine;
 
 public class TalkNPCChore : Chore
 {
-    public NPCController npc;
-
     public override void Evaluate(GameObject actionObject)
     {
         NPCController talkedNPC = actionObject.GetComponent<NPCController>();
 
-        if (talkedNPC == null || talkedNPC != npc) return;
+        if (talkedNPC == null || talkedNPC.name != goalObjName) return;
 
         CompleteChore();
     }

@@ -35,8 +35,11 @@ public class ExceptionLogger : MonoBehaviour
         {
             if (logString.StartsWith("InvalidActionException"))
             {
-                string message = logString.Substring(logString.IndexOf(":") + 1).Trim();
-                UIController.Instance.StartDialogue("", message);
+                if (logString == "InvalidActionException") return;
+                string messageWithName = logString.Substring(logString.IndexOf(":") + 1).Trim();
+                string objName = messageWithName.Substring(0, messageWithName.IndexOf(":"));
+                string message = messageWithName.Substring(messageWithName.IndexOf(":") + 1).Trim();
+                UIController.Instance.StartDialogue(objName, message);
             }
         }
     }

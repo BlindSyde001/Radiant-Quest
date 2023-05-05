@@ -5,15 +5,16 @@ using UnityEngine;
 
 public class NPCController : InteractableController
 {
-    public List<string> dialogue = new List<string>{};
+    public List<string> dialogue = new List<string> { };
+    public string defaultErrorMessage = "I can't talk right now!";
 
-    protected override void Interaction() {
-            if(!_interactionActive) {
-            throw new InvalidActionException($"You can't talk to {objName} yet!");
+    protected override void Interaction()
+    {
+        if (!_interactionActive)
+        {
+            throw new InvalidActionException(defaultErrorMessage, objName);
         }
 
-        if(!UIController.Instance.isDialogueActive()) {
-            UIController.Instance.StartDialogue(objName, dialogue);
-        }
+        UIController.Instance.StartDialogue(objName, dialogue);
     }
 }

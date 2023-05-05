@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085d5388729cefc43b32410940ff4159, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goalObjName: NPC TEST 1
   choreDescription: Talk to npc
   _isCompleted: 0
   unlockAction:
@@ -61,4 +62,3 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-  npc: {fileID: 0}

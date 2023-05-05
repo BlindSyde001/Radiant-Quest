@@ -4,5 +4,8 @@ using UnityEngine;
 
 public class BedController : InteractableController
 {
-    protected override void Interaction() {}
+    protected override void Interaction()
+    {
+        GameManager.Instance.ChangeDay();
+    }
 }
