@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private Vector3 targetPosition;
 
-    private List<InteractableController> nearInteractable = new List<InteractableController>{};
+    private List<InteractableController> nearInteractable = new List<InteractableController> { };
 
     // UPDATES
     private void Start()
@@ -43,17 +43,20 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    private void Update() {
+    private void Update()
+    {
         PlayerInputs();
     }
 
     // METHODS
-    private void PlayerInputs() {
-        if (Input.GetKeyDown(KeyCode.E)) {
+    private void PlayerInputs()
+    {
+        if (Input.GetKeyDown(KeyCode.E))
+        {
             PlayerInteracts();
         }
 
-        if(UIController.Instance.isDialogueActive()) return;
+        if (UIController.Instance.isDialogueActive()) return;
         // Bellow here won't execute if player is interacting with anything
 
         // Movement inputs
@@ -66,11 +69,14 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void PlayerInteracts() {
-        if(UIController.Instance.isDialogueActive())
+    private void PlayerInteracts()
+    {
+        if (UIController.Instance.isDialogueActive())
         {
             UIController.Instance.NextLine();
-        } else if (nearInteractable.Count > 0) {
+        }
+        else if (nearInteractable.Count > 0)
+        {
             InteractableController interactable = nearInteractable[nearInteractable.Count - 1];
             interactable.PlayerInteract();
         }
@@ -189,7 +195,7 @@ public class PlayerController : MonoBehaviour
         while (transform.position != vehicle.transform.position)
         {
             targetPosition = vehicle.transform.position;
-            isMoving = true; 
+            isMoving = true;
             yield return new WaitForFixedUpdate();
         }
 

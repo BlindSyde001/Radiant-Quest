@@ -8,12 +8,13 @@ public class UIController : MonoBehaviour
 {
     public static UIController Instance; // Singleton instance
 
-    private const float CHAR_PER_SECOND = 0.4f;
+    private const float CHAR_PER_SECOND = 0.05f;
     [SerializeField] private GameObject dialoguePanel;
     [SerializeField] private TextMeshProUGUI dialogueText;
     [SerializeField] private TextMeshProUGUI dialogueName;
 
     private static int index;
+    private static bool isTyping = false;
     private static List<string> dialogue = new List<string> { };
 
     private void Awake()
@@ -93,10 +94,14 @@ public class UIController : MonoBehaviour
     // Goes to the next line for the dialogue or stops if reached the end
     public void NextLine()
     {
-        if (index < dialogue.Count)
+        if (isTyping)
+        {
+            isTyping = false;
+            dialogueText.text = dialogue[index];
+        }
+        else if (index < dialogue.Count)
         {
             Instance.WriteDialogueText(dialogue[index]);
-            index++;
         }
         else
         {
@@ -107,11 +112,15 @@ public class UIController : MonoBehaviour
     // Types a char from the dialog text a "CHAR_PER_SECOND"
     private IEnumerator Typing(string text)
     {
+        isTyping = true;
         foreach (char letter in text.ToCharArray())
         {
+            if (!isTyping) break;
             dialogueText.text += letter;
             yield return new WaitForSeconds(CHAR_PER_SECOND);
         }
+        isTyping = false;
+        index++;
     }
 
     public void WriteDialogueText(string text)
