@@ -86,8 +86,19 @@ public class Quest : MonoBehaviour
 
     public void EvaluateAction(GameObject actionObject)
     {
-        Chore current = CurrentChore();
-        current.Evaluate(actionObject);
+        ChoreList todayQuests;
+        try
+        {
+            todayQuests = TodayQuest();
+        }
+        catch (InvalidOperationException)
+        {
+            return;
+        }
+        foreach (Chore chore in todayQuests.chores)
+        {
+            chore.Evaluate(actionObject);
+        }
         UIQuests.Instance.UpdateQuestList();
     }
 }
