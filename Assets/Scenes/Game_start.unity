@@ -1507,6 +1507,12 @@ MonoBehaviour:
     - {fileID: 1284471936}
     - {fileID: 1672458017}
     - {fileID: 1150088471}
+  - questName: Day 2
+    chores: []
+  - questName: Day 3
+    chores: []
+  - questName: Day 4
+    chores: []
 --- !u!4 &1656016301
 Transform:
   m_ObjectHideFlags: 0
