@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     public Tilemap seaTilemap;
     public Tilemap mountainTilemap;
     public Tilemap shipExitTilemap;
-
     public LayerMask collisionTileLayers;
 
     public bool canWalkOnGround = true;
@@ -27,20 +26,26 @@ public class PlayerController : MonoBehaviour
 
     private List<InteractableController> nearInteractable = new List<InteractableController> { };
 
+    public Animator animator;
+    public GameObject spriteGameObject;
+    private bool facingRight = true;
+    private Vector2 lastDir;
+
     // UPDATES
     private void Start()
     {
         SnapPlayerToClosestGroundTile();
+        animator = spriteGameObject.GetComponent<Animator>();
     }
     private void FixedUpdate()
     {
-        if (isMoving)
-        {
+        if (isMoving) {
             transform.position = Vector3.MoveTowards(transform.position, targetPosition, playerSpeed * Time.fixedDeltaTime);
-            if (transform.position == targetPosition)
-            {
+            if (transform.position == targetPosition) {
                 isMoving = false;
             }
+        } else {
+            IdleAnimation(lastDir);
         }
 
     }
@@ -51,10 +56,8 @@ public class PlayerController : MonoBehaviour
     }
 
     // METHODS
-    private void PlayerInputs()
-    {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
+    private void PlayerInputs() {
+        if (Input.GetKeyDown(KeyCode.E)) {
             PlayerInteracts();
         }
 
@@ -62,16 +65,16 @@ public class PlayerController : MonoBehaviour
         // Bellow here won't execute if player is interacting with anything or the game is paused
 
         // Movement inputs
-        if (!isMoving)
-        {
+        if (!isMoving) {
             float horizontalInput = Input.GetAxisRaw("Horizontal");
             float verticalInput = Input.GetAxisRaw("Vertical");
 
             AttemptToMove(horizontalInput, verticalInput);
         }
     }
+        
 
-    private void PlayerInteracts()
+        private void PlayerInteracts()
     {
         if (UIDialogue.Instance.isDialogueActive())
         {
@@ -125,6 +128,22 @@ public class PlayerController : MonoBehaviour
                     // Player is not trying to enter a vehicle
                     targetPosition = groundTilemap.GetCellCenterWorld(groundTilemap.WorldToCell(newPosition));
                     isMoving = true;
+                }
+            }
+
+            if (isMoving) { //Player Animation based on direction
+                if ((inputDirection.x != 0f) || (inputDirection.y != 0f)) {
+                    if (inputDirection.x != 0f) {
+                        if (inputDirection.x > 0f && !facingRight || inputDirection.x < 0f && facingRight) FlipSprite();
+                        animator.Play("Player_walkSide");
+                        lastDir = inputDirection;
+                    } else if (inputDirection.y > 0f) {
+                        animator.Play("Player_walkNorth");
+                        lastDir = inputDirection;
+                    } else if (inputDirection.y < 0f) {
+                        animator.Play("Player_walkSouth");
+                        lastDir = inputDirection;
+                    }
                 }
             }
         }
@@ -237,6 +256,21 @@ public class PlayerController : MonoBehaviour
         if (collider.gameObject.CompareTag("Interactable"))
         {
             nearInteractable.Remove(collider.GetComponent<InteractableController>());
+        }
+    }
+
+    public void FlipSprite() { //flips the sprite to face the other way
+            facingRight = !facingRight;
+            this.transform.localScale = new Vector3(this.transform.localScale.x * -1, 1, 1);
+        }
+
+    public void IdleAnimation(Vector2 lastDir) {
+        if (lastDir.y > 0) {
+            animator.Play("Player_idleNorth");
+        } else if (lastDir.y < 0) {
+            animator.Play("Player_idleSouth");
+        } else {
+            animator.Play("Player_idleSide");
         }
     }
 }
