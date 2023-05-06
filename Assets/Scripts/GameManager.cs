@@ -47,7 +47,7 @@ public class GameManager : MonoBehaviour
         }
         day += 1;
         UIQuests.Instance.UpdateQuestList();
-        UIDialogue.Instance.StartDialogue("", $"Day {day} started!");
+        UIDialogue.Instance.StartDialogue("", $"Day {day + 1} started!");
     }
 }
 
