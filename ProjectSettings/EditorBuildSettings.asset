@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game_start.unity
     guid: 705f68ff78d4894498f94188c0fa16ac
   - enabled: 1
-    path: Assets/Scenes/Town_Level.unity
+    path: Assets/Scenes/Town_Level_Day1.unity
     guid: 5a181a04ce59d5a4f8b3997bac500951
   - enabled: 1
     path: Assets/Scenes/Scene_Overworld.unity

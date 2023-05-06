@@ -21,7 +21,7 @@ public class ScenesManager : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(startGameAudio, Vector3.zero);
             }
-            LoadScene("Town_Level");
+            LoadScene("Town_Level_Day1");
             UIQuests.Instance.questsPanel.SetActive(true);
             GameManager.state = GameManager.GameStates.Playing;
         }
