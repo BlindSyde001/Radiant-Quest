@@ -46,7 +46,6 @@ public class GameManager : MonoBehaviour
             throw new InvalidActionException("Cannot change day while there are pending chores!");
         }
         day += 1;
-        ScenesManager.Instance.LoadScene($"Town_Level_Day{day + 1}");
         UIQuests.Instance.UpdateQuestList();
         UIDialogue.Instance.StartDialogue("", $"Day {day + 1} started!");
     }
