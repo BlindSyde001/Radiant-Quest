@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
     public Tilemap mountainTilemap;
     public Tilemap shipExitTilemap;
 
+    public LayerMask collisionTileLayers;
+
     public bool canWalkOnGround = true;
     public bool canWalkOnSea = false;
     public bool canWalkOnMountain = false;
@@ -173,7 +175,7 @@ public class PlayerController : MonoBehaviour
         // check if vehicle is present at the position
         if (currentVehicleInUse == null)
         {
-            Collider2D[] colliders = Physics2D.OverlapBoxAll(position, new Vector2(0.5f, 0.5f), 0);
+            Collider2D[] colliders = Physics2D.OverlapBoxAll(position, new Vector2(0.5f, 0.5f), 0, collisionTileLayers);
             foreach (Collider2D collider in colliders)
             {
                 if (collider.gameObject.GetComponent<Vehicle>() != null)
