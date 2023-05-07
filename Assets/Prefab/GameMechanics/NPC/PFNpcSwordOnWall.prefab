@@ -54,7 +54,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Name
-      value: PFNpc
+      value: PFNpcSwordOnWall
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: objName
+      value: Beatrice
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
