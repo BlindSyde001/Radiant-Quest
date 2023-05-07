@@ -18,9 +18,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Town_Level_Day2.unity
     guid: 6099d93d12e7f6549a34550c2677af42
   - enabled: 1
-    path: Assets/Scenes/Home.unity
+    path: Assets/Scenes/Home_Interior.unity
     guid: 8cff958b0046e0d459b36d9619393918
   - enabled: 1
     path: Assets/Scenes/Scene_Overworld.unity
     guid: c04d36b243d2c454fb9d1012e8b3a0be
+  - enabled: 1
+    path: Assets/Scenes/Home_Interior_OLD.unity
+    guid: 1cc0a543d946f464e80b80b8e6388ae8
   m_configObjects: {}
