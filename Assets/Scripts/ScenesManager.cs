@@ -36,7 +36,8 @@ public class ScenesManager : MonoBehaviour
             {
                 AudioSource.PlayClipAtPoint(startGameAudio, Vector3.zero);
             }
-            LoadScene("Home_Interior_Day1");
+            // LoadScene("Home_Interior_Day1");
+            LoadScene("Town_Level_Day4");
             UIQuests.Instance.questsPanel.SetActive(true);
             GameManager.state = GameManager.GameStates.Playing;
             AudioManager.Instance.PlaySound(AudioManager.Instance.backgroundSound);
