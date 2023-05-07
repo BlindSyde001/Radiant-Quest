@@ -3767,7 +3767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1680274361016074717, guid: 5062e797578368242ae647464257c494, type: 3}
       propertyPath: objName
-      value: Town_Level_Day1
+      value: Town_Level_Day2
       objectReference: {fileID: 0}
     - target: {fileID: 3958307647785998066, guid: 5062e797578368242ae647464257c494, type: 3}
       propertyPath: m_Offset.y

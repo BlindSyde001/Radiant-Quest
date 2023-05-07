@@ -864,7 +864,7 @@ SpriteRenderer:
   m_SortingLayerID: -1660932941
   m_SortingLayer: 1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 015a2c9e4ba38104dae3c33336d7c1af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c9b6465401730b74c87821ef804a486d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3767,7 +3767,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1680274361016074717, guid: 5062e797578368242ae647464257c494, type: 3}
       propertyPath: objName
-      value: Town_Level_Day1
+      value: Town_Level_Day3
       objectReference: {fileID: 0}
     - target: {fileID: 3958307647785998066, guid: 5062e797578368242ae647464257c494, type: 3}
       propertyPath: m_Offset.y
