@@ -185,7 +185,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6232843203975417417, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: choreDescription
-      value: Investigate what's happening on the town
+      value: Go down the well
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -516,6 +516,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   day: 0
+  playerSpawningSpot: 0
 --- !u!4 &342912907
 Transform:
   m_ObjectHideFlags: 0
@@ -1243,15 +1244,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033556441799562522, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: m_Name
-      value: GetMap
+      value: GetAxe
       objectReference: {fileID: 0}
     - target: {fileID: 6232843203975417417, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: goalObjName
-      value: NPCMapOnWall
+      value: NPCAxe
       objectReference: {fileID: 0}
     - target: {fileID: 6232843203975417417, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: choreDescription
-      value: Find the map
+      value: Get the axe and cotton
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1263,6 +1264,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2385975209565039128, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
   m_PrefabInstance: {fileID: 876442413}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &876442415 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6232843203975417417, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
+  m_PrefabInstance: {fileID: 876442413}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 085d5388729cefc43b32410940ff4159, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1018761450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2737,6 +2749,7 @@ MonoBehaviour:
     - {fileID: 219687613}
   - questName: Day 4
     chores:
+    - {fileID: 876442415}
     - {fileID: 127222094}
 --- !u!4 &1656016301
 Transform:

@@ -1171,11 +1171,43 @@ PrefabInstance:
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 92818735}
   m_SourcePrefab: {fileID: 100100000, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+--- !u!1 &92818734 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+  m_PrefabInstance: {fileID: 92818733}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &92818735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92818734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b410df910cf6e6a4cab606f2e8b4bdbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objName: 
+  _interactionActive: 1
+  interactAction:
+    m_PersistentCalls:
+      m_Calls: []
+  dialogue:
+  - "You see it don\u2019t you! Dont you! The missing people\u2026 You must find
+    the beast and slay it!"
+  - " Stuff your ears with cotton, find yourself a weapon and then I\u2019ll tell
+    you more. Meet me in the middle of town."
+  secondDialogueLine: I can't talk right now!
 --- !u!1001 &143934606
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22532,6 +22564,7 @@ GameObject:
   - component: {fileID: 726289664}
   - component: {fileID: 726289663}
   - component: {fileID: 726289662}
+  - component: {fileID: 726289666}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -22615,13 +22648,27 @@ RectTransform:
   m_Children:
   - {fileID: 917251534}
   m_Father: {fileID: 0}
-  m_RootOrder: 26
+  m_RootOrder: 27
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &726289666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726289661}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 412af301bd1f3a647b779dcd6683778d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  videoPlayer: {fileID: 1211793630}
+  videoPlayerObj: {fileID: 917251533}
 --- !u!1 &737181653
 GameObject:
   m_ObjectHideFlags: 0
@@ -26043,11 +26090,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -13.85
+      value: -9
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.23
+      value: 1.73
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.z
@@ -26123,7 +26170,7 @@ PrefabInstance:
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Name
-      value: NPCStump (1)
+      value: NPCAxe
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Size.x
@@ -26167,7 +26214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: This belonged to the woodcutter...
+      value: '*You pick up the axe and the cotton*'
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[1]
@@ -26188,18 +26235,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
-      value: 0
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
-      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2122486892}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 1337486845}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 92818735}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
@@ -26207,15 +26278,47 @@ PrefabInstance:
       value: ActivateInteraction
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: MoveToFinalPosition
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: FinalScenes
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: InteractableController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: DrumController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_TargetAssemblyTypeName
+      value: DrummerFinal, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -50736,7 +50839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &917251534
 RectTransform:
   m_ObjectHideFlags: 0
@@ -53475,6 +53578,72 @@ Transform:
   m_Father: {fileID: 403492204}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1211793629
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211793631}
+  - component: {fileID: 1211793630}
+  m_Layer: 0
+  m_Name: VideoPlayer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!328 &1211793630
+VideoPlayer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211793629}
+  m_Enabled: 1
+  m_VideoClip: {fileID: 32900000, guid: 11f43c6e63f0f164aa605ffc8425c53c, type: 3}
+  m_TargetCameraAlpha: 1
+  m_TargetCamera3DLayout: 0
+  m_TargetCamera: {fileID: 0}
+  m_TargetTexture: {fileID: 8400000, guid: ae991fd20c25f31459eedfb65dd46fbc, type: 2}
+  m_TimeReference: 0
+  m_TargetMaterialRenderer: {fileID: 0}
+  m_TargetMaterialProperty: <noninit>
+  m_RenderMode: 2
+  m_AspectRatio: 2
+  m_DataSource: 0
+  m_TimeUpdateMode: 2
+  m_PlaybackSpeed: 1
+  m_AudioOutputMode: 2
+  m_TargetAudioSources: []
+  m_DirectAudioVolumes: []
+  m_Url: 
+  m_EnabledAudioTracks: 
+  m_DirectAudioMutes: 
+  m_ControlledAudioTrackCount: 0
+  m_PlayOnAwake: 1
+  m_SkipOnDrop: 1
+  m_Looping: 0
+  m_WaitForFirstFrame: 1
+  m_FrameReadyEventEnabled: 0
+  m_VideoShaders: []
+--- !u!4 &1211793631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211793629}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -17.5, y: 19, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 26
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1212290988
 GameObject:
   m_ObjectHideFlags: 0
@@ -53909,7 +54078,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.5
+      value: -100
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.y
@@ -54009,7 +54178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 1.75
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -54087,8 +54256,28 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1337486845}
   m_SourcePrefab: {fileID: 100100000, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+--- !u!1 &1337486844 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+  m_PrefabInstance: {fileID: 1337486843}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337486845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337486844}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04d0ebde269de984d9a0ecc480309968, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1350947184
 GameObject:
   m_ObjectHideFlags: 0
@@ -59785,11 +59974,62 @@ PrefabInstance:
       propertyPath: m_Size.y
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: _interactionActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: secondDialogueLine
+      value: First I need the axe and the cotton...
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: dialogue.Array.data[0]
+      value: '*You go down the well and kill the hydra!*'
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 726289666}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PlayFinalBattle
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: VideoManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: interactAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+--- !u!114 &2122486892 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+  m_PrefabInstance: {fileID: 2122486891}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ffaca3ccb95bac149ae1c6d40356e172, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2125199598
 GameObject:
   m_ObjectHideFlags: 0
