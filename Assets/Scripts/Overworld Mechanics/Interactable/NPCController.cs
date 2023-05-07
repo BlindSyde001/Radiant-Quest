@@ -16,5 +16,6 @@ public class NPCController : InteractableController
         }
 
         UIDialogue.Instance.StartDialogue(objName, dialogue);
+        ActivateInteraction(false);
     }
 }
