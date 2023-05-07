@@ -177,7 +177,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5033556441799562522, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: m_Name
-      value: GetAxe
+      value: GetWell
       objectReference: {fileID: 0}
     - target: {fileID: 6232843203975417417, guid: a509dc4a6936fed478e7c8ad589f9268, type: 3}
       propertyPath: goalObjName
