@@ -29420,15 +29420,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 1
+      value: 2.9375
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 2
+      value: 2.3125
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: objName
-      value: Librarian
+      value: Well
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: _interactionActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: defaultErrorMessage
