@@ -2815,6 +2815,10 @@ PrefabInstance:
       propertyPath: objName
       value: Town_Level_Day1
       objectReference: {fileID: 0}
+    - target: {fileID: 1680274361016074717, guid: 5062e797578368242ae647464257c494, type: 3}
+      propertyPath: playerSpawningSpot
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5384946108510780535, guid: 5062e797578368242ae647464257c494, type: 3}
       propertyPath: m_RootOrder
       value: 7
