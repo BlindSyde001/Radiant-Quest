@@ -39,6 +39,7 @@ public class ScenesManager : MonoBehaviour
             LoadScene("Town_Level_Day2");
             UIQuests.Instance.questsPanel.SetActive(true);
             GameManager.state = GameManager.GameStates.Playing;
+            GameManager.Instance.PlaySound(GameManager.backgroundSound);
         }
     }
 

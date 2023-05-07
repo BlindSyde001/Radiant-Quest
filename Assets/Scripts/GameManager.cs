@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static AudioSource backgroundSound;
+    public static AudioSource breadSound;
     public static GameManager Instance; // Singleton instance
     public int day; // Private variable to store the current day
 
@@ -33,6 +35,10 @@ public class GameManager : MonoBehaviour
         state = GameStates.MainMenu;
     }
 
+    void Start() {
+        backgroundSound = GetComponent<AudioSource>();
+    }
+
     public static int GetDay()
     {
         return Instance.day;
@@ -48,6 +54,11 @@ public class GameManager : MonoBehaviour
         day += 1;
         UIQuests.Instance.UpdateQuestList();
         UIDialogue.Instance.StartDialogue("", $"Day {day + 1} started!");
+    }
+
+    public void PlaySound(AudioSource audioSource)
+    {
+        audioSource.Play();
     }
 }
 

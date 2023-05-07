@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseDoorInsideController : InteractableController
+public class DoorInsideController : InteractableController
 {
     protected override void Interaction()
     {

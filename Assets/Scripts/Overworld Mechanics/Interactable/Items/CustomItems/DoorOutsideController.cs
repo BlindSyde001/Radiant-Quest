@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HouseDoorOutsideController : InteractableController
+public class DoorOutsideController : InteractableController
 {
+    public string scene;
+
     protected override void Interaction()
     {
-        ScenesManager.Instance.LoadScene("Home");
+        ScenesManager.Instance.LoadScene(scene);
     }
 }
