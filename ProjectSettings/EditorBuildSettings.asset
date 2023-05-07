@@ -35,4 +35,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Town_Level_Day4.unity
     guid: 8676dbaad9ac3cc499c0499d5c9016da
+  - enabled: 1
+    path: Assets/Scenes/Home_Library_Day2.unity
+    guid: f1c27a68e48f58c4dbf28a5c3f4043d7
+  - enabled: 1
+    path: Assets/Scenes/Home_Library_Day3.unity
+    guid: a7396c93655a3c34fbe099679d35d06a
+  - enabled: 1
+    path: Assets/Scenes/Home_Library_Day4.unity
+    guid: dbea5dd42a070e24f9e28a6f98348005
   m_configObjects: {}

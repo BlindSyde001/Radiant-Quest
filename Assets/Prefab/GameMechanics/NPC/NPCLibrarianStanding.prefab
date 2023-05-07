@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &4457840720425847517
+--- !u!1001 &7451695289068581756
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_RootOrder
-      value: 17
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -15.5
+      value: -20.5
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.5
+      value: 11.5
       objectReference: {fileID: 0}
     - target: {fileID: 2285681599860006473, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_LocalPosition.z
@@ -63,7 +63,7 @@ PrefabInstance:
     - target: {fileID: 2598308006641955572, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Sprite
       value: 
-      objectReference: {fileID: 21300000, guid: b089399cb8a89eb47918627bb8973178, type: 3}
+      objectReference: {fileID: 21300000, guid: 6f1b8c415db26d548980a39d2f03c1f7, type: 3}
     - target: {fileID: 2598308006641955572, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Color.a
       value: 1
@@ -86,15 +86,7 @@ PrefabInstance:
       objectReference: {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 3432773538497915251, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_Name
-      value: NPCFamilySon
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
-      propertyPath: m_Size.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
-      propertyPath: m_Size.y
-      value: 4
+      value: NPCLibrarianStanding
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
@@ -106,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.875
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5199620716719359005, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
@@ -114,11 +106,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: objName
-      value: Shop son
+      value: Librarian
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: secondDialogueLine
-      value: This well is so creepy, can you hear that noise?
+      value: I wonder why I sat here by myself for so long...
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: defaultErrorMessage
@@ -126,24 +118,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[0]
-      value: "Growing up here is so boring nothing ever happens. Mum and dad are
-        too busy in the bakery to play with me\u2026"
+      value: "Come by if you need any books! They\u2019re wonderful company, mind
+        you I\u2019d kill for some human company too\u2026"
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[1]
-      value: This well is so creepy, can you hear that noise?
+      value: "You know I use to sit here for hours chatting to.. to\u2026 well myself
+        I guess!"
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[2]
-      value: Say morning to the woodcutter for me!
+      value: '*They look confused but then laugh it off*'
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[3]
-      value: Say morning to the woodcutter for me!
+      value: My daddy works ever so hard, you can find him by the stump cutting wood
+        to sell!
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: dialogue.Array.data[4]

@@ -43315,6 +43315,11 @@ PrefabInstance:
       value: Crazy man
       objectReference: {fileID: 0}
     - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
+      propertyPath: secondDialogueLine
+      value: "There\u2019s no point talking to any of ya\u2019s! Ya won\u2019t remember,
+        now get!"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6524493265701556673, guid: d5f6094c679be9f4fbf7691fbcc30def, type: 3}
       propertyPath: defaultErrorMessage
       value: "There\u2019s no point talking to any of ya\u2019s! Ya won\u2019t remember,
         now get!"
