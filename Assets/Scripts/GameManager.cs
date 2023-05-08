@@ -63,7 +63,9 @@ public class GameManager : MonoBehaviour
     {
         if (!Quest.Instance.IsTodayQuestCompleted())
         {
-            throw new InvalidActionException("Cannot change day while there are pending chores!");
+            throw new InvalidActionException("I need to complete my daily chores before I go to bed.");
+
+            
         }
         day += 1;
         UIQuests.Instance.UpdateQuestList();

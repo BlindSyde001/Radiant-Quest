@@ -57,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     // METHODS
     private void PlayerInputs() {
-        if (Input.GetKeyDown(KeyCode.E)) {
+        if ((Input.GetKeyDown(KeyCode.E) || (Input.GetKeyDown(KeyCode.U))) || (Input.GetKeyDown(KeyCode.Space))) {
             PlayerInteracts();
         }
 
