@@ -99,9 +99,11 @@ public class PlayerController : MonoBehaviour
         if (horizontalInput != 0f || verticalInput != 0f)
         {
             Vector2 inputDirection = new Vector2(horizontalInput, verticalInput);
+            
 
             // Normalize the input direction so that diagonal movement is not faster than horizontal or vertical movement.
             inputDirection.Normalize();
+            
 
             // Clamp the input direction to the horizontal or vertical axis.
             if (Mathf.Abs(inputDirection.x) > Mathf.Abs(inputDirection.y))
@@ -112,6 +114,9 @@ public class PlayerController : MonoBehaviour
             {
                 inputDirection.x = 0f;
             }
+
+            lastDir = inputDirection;
+            if (inputDirection.x > 0f && !facingRight || inputDirection.x < 0f && facingRight) FlipSprite();
 
             // New tile I am moving to
             Vector3 newPosition = transform.position + new Vector3(inputDirection.x, inputDirection.y, 0f);
@@ -133,16 +138,15 @@ public class PlayerController : MonoBehaviour
 
             if (isMoving) { //Player Animation based on direction
                 if ((inputDirection.x != 0f) || (inputDirection.y != 0f)) {
-                    if (inputDirection.x != 0f) {
-                        if (inputDirection.x > 0f && !facingRight || inputDirection.x < 0f && facingRight) FlipSprite();
+                    if (inputDirection.x != 0f) {                        
                         animator.Play("Player_walkSide");
-                        lastDir = inputDirection;
+                        //lastDir = inputDirection;
                     } else if (inputDirection.y > 0f) {
                         animator.Play("Player_walkNorth");
-                        lastDir = inputDirection;
+                        //lastDir = inputDirection;
                     } else if (inputDirection.y < 0f) {
                         animator.Play("Player_walkSouth");
-                        lastDir = inputDirection;
+                        //lastDir = inputDirection;
                     }
                 }
             }

@@ -9,8 +9,12 @@ public class VideoManager : MonoBehaviour
     public GameObject videoPlayerObj;
 
     public void PlayFinalBattle() {
-        Debug.Log("Playing");
-        videoPlayerObj.SetActive(true);
-        videoPlayer.Play();
+        Debug.Log(videoPlayerObj);
+        //videoPlayerObj.SetActive(true);
+        //videoPlayer.Play();
+    }
+
+    public void RemoveVideo() {
+        //videoPlayerObj.SetActive(false);
     }
 }

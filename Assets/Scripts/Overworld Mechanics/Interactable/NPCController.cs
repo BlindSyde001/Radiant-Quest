@@ -22,4 +22,8 @@ public class NPCController : InteractableController
 
         }
     }
+
+    void RemoveSelf() {
+        this.enabled = false;
+    }
 }

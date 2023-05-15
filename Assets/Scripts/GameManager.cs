@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
+        day = 3;
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
     private void OnDisable()

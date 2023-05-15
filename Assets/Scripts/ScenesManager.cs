@@ -48,4 +48,10 @@ public class ScenesManager : MonoBehaviour
         SceneManager.LoadScene(scene);
         Instance.loadingScene = false;
     }
+
+    public void endGame() {
+        Instance.loadingScene = true;
+        LoadScene("theEnd");
+    }
+
 }
